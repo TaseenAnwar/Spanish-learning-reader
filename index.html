@@ -50,7 +50,18 @@
             <div id="story-section" class="section hidden">
                 <div class="story-header">
                     <h2>Your Spanish Story</h2>
-                    <button id="new-story-btn" class="btn btn-secondary">Generate New Story</button>
+                    <div class="header-buttons">
+                        <button id="audio-btn" class="btn btn-audio">
+                            <span class="audio-icon">🔊</span>
+                            <span class="audio-text">Listen to Story</span>
+                        </button>
+                        <button id="new-story-btn" class="btn btn-secondary">Generate New Story</button>
+                    </div>
+                </div>
+                
+                <div id="audio-loading" class="audio-loading hidden">
+                    <div class="spinner-small"></div>
+                    <p>Generating audio...</p>
                 </div>
                 
                 <div id="story-content" class="story-content"></div>
@@ -68,6 +79,9 @@
 
     <!-- Translation Tooltip -->
     <div id="tooltip" class="tooltip hidden"></div>
+
+    <!-- Hidden audio element -->
+    <audio id="story-audio" style="display: none;"></audio>
 
     <script src="script.js"></script>
 </body>
