@@ -3,20 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spanish Learning Reader</title>
+    <title>Language Learning Reader</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>📚 Spanish Learning Reader</h1>
-            <p class="subtitle">Improve your Spanish reading skills with interactive stories</p>
+            <h1>📚 Language Learning Reader</h1>
+            <p class="subtitle">Improve your language skills with interactive stories</p>
         </header>
 
         <main>
             <!-- Story Generation Section -->
             <div id="generation-section" class="section">
                 <div class="form-container">
+                    <label for="language-select">Choose Language:</label>
+                    <select id="language-select" class="language-select">
+                        <option value="">Select a language...</option>
+                        <option value="spanish">Spanish (Español)</option>
+                        <option value="chinese">Chinese (中文)</option>
+                        <option value="hindi">Hindi (हिन्दी)</option>
+                        <option value="urdu">Urdu (اردو)</option>
+                        <option value="french">French (Français)</option>
+                        <option value="arabic">Arabic (العربية)</option>
+                        <option value="russian">Russian (Русский)</option>
+                        <option value="german">German (Deutsch)</option>
+                        <option value="japanese">Japanese (日本語)</option>
+                        <option value="korean">Korean (한국어)</option>
+                    </select>
+
                     <label for="grade-level">Pick Grade Level:</label>
                     <select id="grade-level" class="grade-select">
                         <option value="">Select a grade level...</option>
@@ -35,7 +50,7 @@
                         <option value="12">12th Grade</option>
                     </select>
 
-                    <button id="generate-btn" class="btn btn-primary">Generate Spanish Story</button>
+                    <button id="generate-btn" class="btn btn-primary">Generate Story</button>
                     
                     <div id="loading" class="loading hidden">
                         <div class="spinner"></div>
@@ -49,7 +64,7 @@
             <!-- Story Display Section -->
             <div id="story-section" class="section hidden">
                 <div class="story-header">
-                    <h2>Your Spanish Story</h2>
+                    <h2>Your <span id="story-language">Language</span> Story</h2>
                     <div class="header-buttons">
                         <button id="audio-btn" class="btn btn-audio">
                             <span class="audio-icon">🔊</span>
@@ -67,13 +82,54 @@
                 <div id="story-content" class="story-content"></div>
                 
                 <div class="instructions">
-                    <p><strong>💡 Tip:</strong> Hover over any Spanish word to see its English translation!</p>
+                    <p><strong>💡 Tip:</strong> Hover over any word to see its English translation!</p>
+                </div>
+
+                <!-- Quiz Button -->
+                <div class="quiz-button-container">
+                    <button id="quiz-btn" class="btn btn-quiz">📝 Quiz Yourself</button>
+                </div>
+            </div>
+
+            <!-- Quiz Section -->
+            <div id="quiz-section" class="section hidden">
+                <div class="quiz-header">
+                    <h2>📝 Story Quiz</h2>
+                    <button id="back-to-story-btn" class="btn btn-secondary-small">← Back to Story</button>
+                </div>
+
+                <div id="quiz-loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Generating quiz questions...</p>
+                </div>
+
+                <div id="quiz-content" class="quiz-content hidden">
+                    <p class="quiz-instructions">Answer the following questions about the story:</p>
+                    <form id="quiz-form">
+                        <div id="quiz-questions"></div>
+                        <button type="submit" class="btn btn-primary">Submit Answers</button>
+                    </form>
+                </div>
+
+                <div id="quiz-results" class="quiz-results hidden">
+                    <h3>Quiz Results</h3>
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span id="score-text">0/3</span>
+                        </div>
+                        <p id="score-message"></p>
+                    </div>
+                    <div id="question-feedback"></div>
+                    <div class="quiz-actions">
+                        <button id="retake-quiz-btn" class="btn btn-secondary">Retake Quiz</button>
+                        <button id="new-story-from-quiz-btn" class="btn btn-primary">Generate New Story</button>
+                    </div>
                 </div>
             </div>
         </main>
 
         <footer>
-            <p>© 2025 Spanish Learning Reader | Built for language learners</p>
+            <p>© 2025 Language Learning Reader | Built for language learners worldwide</p>
         </footer>
     </div>
 
