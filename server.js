@@ -11,6 +11,7 @@ const { sequelize, User, SavedStory, Vocabulary, QuizScore, syncDatabase } = req
 const { isAuthenticated, optionalAuth } = require('./middleware/auth');
 
 const app = express();
+app.set('trust proxy', 1); // Trust first proxy
 const PORT = process.env.PORT || 3000;
 
 // Initialize OpenAI
